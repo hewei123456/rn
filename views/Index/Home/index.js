@@ -4,17 +4,11 @@ import { View, Text, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-class Popular extends Component {
-  render(): React.ReactNode {
-    return (
-      <Text>Popular</Text>
-    );
-  }
-}
+import PopularView from './Popular';
 
 const TopTab = createAppContainer(createMaterialTopTabNavigator({
   Popular: {
-    screen: Popular,
+    screen: PopularView,
     navigationOptions: {
       tabBarLabel: '最热',
     },
