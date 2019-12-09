@@ -76,12 +76,9 @@ const TabBar = createAppContainer(createBottomTabNavigator({
 }));
 
 export default class IndexView extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    console.log(navigation);
-    return ({
-      header: null,
-    });
-  };
+  static navigationOptions = ({ navigation }) => ({
+    header: null,
+  });
 
   render(): React.ReactNode {
 
