@@ -18,7 +18,6 @@ const TabBar = createAppContainer(createBottomTabNavigator({
   HomeView: {
     screen: HomeView,
     navigationOptions: {
-      title: '首页',
       tabBarIcon: ({ focused }) => (
         <MaterialIcons
           name='whatshot'
@@ -30,10 +29,9 @@ const TabBar = createAppContainer(createBottomTabNavigator({
       ),
     },
   },
-  TrendingView:{
+  TrendingView: {
     screen: TrendingView,
     navigationOptions: {
-      title: '趋势',
       tabBarIcon: ({ focused }) => (
         <MaterialIcons
           name='trending-up'
@@ -45,10 +43,9 @@ const TabBar = createAppContainer(createBottomTabNavigator({
       ),
     },
   },
-  FavoriteView:{
+  FavoriteView: {
     screen: FavoriteView,
     navigationOptions: {
-      title: '收藏',
       tabBarIcon: ({ focused }) => (
         <MaterialIcons
           name='favorite'
@@ -63,7 +60,7 @@ const TabBar = createAppContainer(createBottomTabNavigator({
   MineView: {
     screen: MineView,
     navigationOptions: {
-      title: '我的', tabBarIcon: ({ focused }) => (
+      tabBarIcon: ({ focused }) => (
         <Ionicons
           name='md-person'
           size={28}
@@ -74,10 +71,20 @@ const TabBar = createAppContainer(createBottomTabNavigator({
       ),
     },
   },
+}, {
+  header: null,
 }));
 
 export default class IndexView extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    console.log(navigation);
+    return ({
+      header: null,
+    });
+  };
+
   render(): React.ReactNode {
+
     return (
       <TabBar/>
     );

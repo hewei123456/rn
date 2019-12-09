@@ -1,11 +1,37 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-export default class HomeView extends React.Component {
+import { createAppContainer } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+
+class Popular extends Component {
   render(): React.ReactNode {
     return (
-      <View>
-        <Text>HomeView</Text>
+      <Text>Popular</Text>
+    );
+  }
+}
+
+const TopTab = createAppContainer(createMaterialTopTabNavigator({
+  Popular: {
+    screen: Popular,
+    navigationOptions: {
+      tabBarLabel: '最热',
+    },
+  },
+}));
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+export default class HomeView extends Component {
+  render(): React.ReactNode {
+    return (
+      <View style={styles.container}>
+        <TopTab/>
       </View>
     );
   }

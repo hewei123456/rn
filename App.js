@@ -2,6 +2,6 @@ import React from 'react';
 
 import { createAppContainer } from 'react-navigation';
 
-import { IndexStackNavigator } from './router';
+import { SwitchNavigator } from './router';
 
-export default createAppContainer(IndexStackNavigator);
+export default createAppContainer(SwitchNavigator);
