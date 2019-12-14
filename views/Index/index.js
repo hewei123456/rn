@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import Navigator from '../../router/navigator';
 
 import DynamicTabNavigator from './dynamic';
 
@@ -9,6 +9,7 @@ export default class IndexView extends React.Component {
   });
 
   render(): React.ReactNode {
+    Navigator.navigation = this.props.navigation;
 
     return (
       <DynamicTabNavigator/>
