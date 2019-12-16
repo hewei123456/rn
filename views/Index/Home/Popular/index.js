@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 import Navigator from '../../../../router/navigator';
 
-export default class PopularView extends Component {
+export default class PopularView extends PureComponent {
   render(): React.ReactNode {
     return (
       <View style={styles.container}>

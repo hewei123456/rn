@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { createAppContainer } from 'react-navigation';
@@ -6,7 +6,7 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import PopularView from './Popular';
 
-export default class HomeView extends Component {
+export default class HomeView extends PureComponent {
   constructor(props) {
     super(props);
     this.tabs = ['Java', 'Android', 'IOS',

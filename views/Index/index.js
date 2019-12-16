@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Navigator from '../../router/navigator';
 
 import DynamicTabNavigator from './dynamic';
 
-export default class IndexView extends React.Component {
+export default class IndexView extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
     header: null,
   });
