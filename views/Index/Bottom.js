@@ -21,7 +21,7 @@ const TabBarLabel = ({ focused, label, activeColor }) => {
   );
 };
 
-class DynamicTabNavigator extends PureComponent {
+class Bottom extends PureComponent {
   constructor(props) {
     super(props);
   }
@@ -97,4 +97,4 @@ const mapStateToProps = ({ colors }) => ({
   theme: colors.theme,
 });
 
-export default connect(mapStateToProps)(DynamicTabNavigator);
+export default connect(mapStateToProps)(Bottom);

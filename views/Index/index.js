@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Navigator from '../../router/navigator';
 
-import DynamicTabNavigator from './dynamic';
+import Bottom from './Bottom';
 
 export default class IndexView extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
@@ -12,7 +12,7 @@ export default class IndexView extends PureComponent {
     Navigator.navigation = this.props.navigation;
 
     return (
-      <DynamicTabNavigator/>
+      <Bottom/>
     );
   }
 }
