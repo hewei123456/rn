@@ -11,6 +11,7 @@ class TrendingView extends PureComponent {
       <View>
         <Text>TrendingView</Text>
         <Button title='更换主题' onPress={() => {
+          console.log(this.props.theme);
           this.props.updateTheme(this.props.theme === '#1890ff' ? '#e4393c' : '#1890ff');
         }}/>
       </View>
