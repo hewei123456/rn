@@ -1,5 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+
+import { persistStore, persistReducer } from 'redux-persist';
+import { AsyncStorage } from 'react-native';
 import reducer from './reducer';
 
 const composeEnhancers =
@@ -15,4 +18,16 @@ const enhancer = composeEnhancers(
   applyMiddleware(...middlewares),
 );
 
-export default () => createStore(reducer, enhancer);
+
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+};
+
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+export default () => {
+  let store = createStore(persistedReducer, enhancer);
+  let persistor = persistStore(store);
+  return { store, persistor };
+}
