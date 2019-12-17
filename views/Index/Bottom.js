@@ -21,12 +21,10 @@ const TabBarLabel = ({ focused, label, activeColor }) => {
   );
 };
 
-class Bottom extends PureComponent {
+export default class DynamicTabNavigator extends PureComponent {
   constructor(props) {
     super(props);
   }
-
-  getActiveColor = focused => ({ color: focused ? this.props.theme : '#aaa' });
 
   render(): React.ReactNode {
     const { theme } = this.props;
@@ -35,61 +33,68 @@ class Bottom extends PureComponent {
       HomeView: {
         screen: HomeView,
         navigationOptions: {
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ tintColor, focused }) => (
             <MaterialIcons
               name='whatshot'
               size={28}
-              style={this.getActiveColor(focused)}/>
+              style={{ color: tintColor }}/>
           ),
-          tabBarLabel: ({ focused }) => (
-            <TabBarLabel focused={focused} activeColor={theme} label='首页'/>
-          ),
+          tabBarLabel: '首页',
         },
       },
       TrendingView: {
         screen: TrendingView,
         navigationOptions: {
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ tintColor, focused }) => (
             <MaterialIcons
               name='trending-up'
               size={28}
-              style={this.getActiveColor(focused)}/>
+              style={{ color: tintColor }}/>
           ),
-          tabBarLabel: ({ focused }) => (
-            <TabBarLabel focused={focused} activeColor={theme} label='趋势'/>
-          ),
+          tabBarLabel: '趋势',
         },
       },
       FavoriteView: {
         screen: FavoriteView,
         navigationOptions: {
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ tintColor, focused }) => (
             <MaterialIcons
               name='favorite'
               size={28}
-              style={this.getActiveColor(focused)}/>
+              style={{ color: tintColor }}/>
           ),
-          tabBarLabel: ({ focused }) => (
-            <TabBarLabel focused={focused} activeColor={theme} label='收藏'/>
-          ),
+          tabBarLabel: '收藏',
         },
       },
       MineView: {
         screen: MineView,
         navigationOptions: {
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ tintColor, focused }) => (
             <Ionicons
               name='md-person'
               size={28}
-              style={this.getActiveColor(focused)}/>
+              style={{ color: tintColor }}/>
           ),
-          tabBarLabel: ({ focused }) => (
-            <TabBarLabel focused={focused} activeColor={theme} label='我的'/>
-          ),
+          tabBarLabel: '我的',
         },
       },
-    }, {}));
+    }, {
+      tabBarComponent: connect(mapStateToProps)(TabBarComponent),
+    }));
     return <TabBar/>;
+  }
+}
+
+class TabBarComponent extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return <BottomTabBar
+      {...this.props}
+      activeTintColor={this.props.theme}
+    />;
   }
 }
 
@@ -97,4 +102,3 @@ const mapStateToProps = ({ colors }) => ({
   theme: colors.theme,
 });
 
-export default connect(mapStateToProps)(Bottom);
