@@ -3,7 +3,6 @@ import { View, Button, Image } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 var photoOptions = {
-  //底部弹出框选项
   title: '请选择',
   cancelButtonTitle: '取消',
   takePhotoButtonTitle: '拍照',
