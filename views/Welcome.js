@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Navigator from '../router/navigator';
+import Navigator from 'router/navigator';
 
 export default class WelcomeView extends PureComponent {
   componentDidMount(): void {

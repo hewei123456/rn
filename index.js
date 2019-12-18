@@ -8,7 +8,7 @@ import { SwitchNavigator } from './router';
 
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import configStore from './store';
+import configStore from 'store';
 
 const { store, persistor } = configStore();
 

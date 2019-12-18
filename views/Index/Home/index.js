@@ -2,24 +2,23 @@ import React, { PureComponent } from 'react';
 import { View, StyleSheet } from 'react-native';
 
 import { createAppContainer } from 'react-navigation';
-import { BottomTabBar, createMaterialTopTabNavigator, MaterialTopTabBar } from 'react-navigation-tabs';
+import { createMaterialTopTabNavigator, MaterialTopTabBar } from 'react-navigation-tabs';
 
 import { connect } from 'react-redux';
 
-import PopularView from './Popular';
+import ListView from './List';
 
 class HomeView extends PureComponent {
   constructor(props) {
     super(props);
-    this.tabs = ['Java', 'Android', 'IOS',
-      'React', 'React Native', 'PHP', 'Javascript'];
+    this.tabs = ['精选', '寒假', '冲刺', '复试', '在职考研', 'VIP课程', '专业课课程'];
   }
 
   renderTab = () => {
     let tabs = {};
     this.tabs.forEach((tab, index) => {
       tabs[`tab${index}`] = {
-        screen: props => <PopularView {...props} tabLabel={tab}/>,
+        screen: props => <ListView {...props} tabLabel={tab}/>,
         navigationOptions: {
           tabBarLabel: tab,
         },
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   tabStyle: {
-    minWidth: 50,
+    minWidth: 90,
   },
   indicatorStyle: {
     height: 2,
@@ -55,8 +54,7 @@ const styles = StyleSheet.create({
   },
   labelStyle: {
     fontSize: 13,
-    marginTop: 6,
-    marginBottom: 6,
+    lineHeight: 20,
   },
 });
 

@@ -9,7 +9,7 @@ export default class DetailView extends Component {
   render(): React.ReactNode {
     return (
       <View>
-        <Text>DetailView</Text>
+        <Text>{this.props.navigation.state.params.name}</Text>
       </View>
     );
   }

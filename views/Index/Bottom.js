@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Text } from 'react-native';
 
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator, BottomTabBar } from 'react-navigation-tabs';
@@ -13,13 +12,6 @@ import FavoriteView from './Favorite';
 import MineView from './Mine';
 
 import { connect } from 'react-redux';
-
-const TabBarLabel = ({ focused, label, activeColor }) => {
-  const style = { textAlign: 'center', color: focused ? activeColor : '#aaa' };
-  return (
-    <Text style={style}>{label}</Text>
-  );
-};
 
 export default class DynamicTabNavigator extends PureComponent {
   constructor(props) {

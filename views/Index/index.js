@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Navigator from '../../router/navigator';
+import Navigator from 'router/navigator';
 
 import Bottom from './Bottom';
 
