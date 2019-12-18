@@ -6,7 +6,7 @@ export default class WelcomeView extends PureComponent {
   componentDidMount(): void {
     this.timer = setTimeout(() => {
       Navigator.switchToIndex(this.props);
-    }, 500);
+    }, 200);
   }
 
   componentWillMount(): void {

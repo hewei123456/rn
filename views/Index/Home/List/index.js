@@ -33,6 +33,7 @@ class ListView extends PureComponent {
       <View style={styles.container}>
 
         <Button title='更换主题' onPress={() => {
+          console.log(this.props.theme);
           this.props.updateTheme(this.props.theme === '#1890ff' ? '#a67' : '#1890ff');
         }}/>
 
