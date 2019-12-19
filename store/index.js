@@ -22,6 +22,7 @@ const enhancer = composeEnhancers(
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
+  whitelist: ['colors'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);
